@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "git-LiveKit": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-server-git",
+        "--repository",
+        "/Users/activi/Code/Projects/LiveKit"
+      ],
+      "env": {}
+    }
+  }
+}
