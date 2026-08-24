@@ -6,7 +6,7 @@ Ein Blick. Quelle: Dateien unter `src/`. Neu schreiben:
 uv run python scripts/update-agent-registry.py
 ```
 
-Zuletzt gebaut: **2026-08-24 07:36 CEST**
+Zuletzt gebaut: **2026-08-24 07:44 CEST**
 
 | Anzeige | LiveKit-Name | Datei | Stimme | Rolle | Letzter Git |
 |---|---|---|---|---|---|
@@ -28,7 +28,9 @@ Mujo und Template sind **nicht** deployed.
 
 | Agent | Befehl |
 |---|---|
-| Fish | `./scripts/start-amina-console.sh` |
-| Amina v2 | `./scripts/start-amina-soniox-v2-console.sh` |
-| Mujo | `uv run python -m alans_mujo_v3.agent console` |
+| Fish | Desktop `01-Amina-Fish.command` |
+| Amina Soniox alt | Desktop `02-Amina-Soniox-alt.command` |
+| Amina v2 | Desktop `03-Amina-v2-Soniox.command` |
+| Template V1 | Desktop `04-Template-V1.command` |
+| Mujo | Desktop `05-Alans-Mujo-V3.command` |
 | GSM-Call (Cloud-Amina) | `./scripts/call-live-gsm.sh` |

@@ -52,7 +52,7 @@ uv run pytest
 uv run python -m alans_mujo_v3.agent console
 ```
 
-Desktop: `Amina-telefonieren.command` (Fish), `Amina-soniox-v2-telefonieren.command` (v2).
+Desktop-Ordner `~/Desktop/LiveKit Agents/` — eine `.command` pro Agent.
 
 ## Cloud
 
@@ -74,7 +74,8 @@ Ruft den **live** Cloud-Agenten (`amina-soniox-v2`), nicht Mujo.
 uv run python scripts/new-from-template-v1.py --slug firma_x --agent-name firma-x
 ```
 
-Nur `prompts.py`, `soul.md`, `project.toml` ändern. Siehe Skill `bosnian-livekit-template-v1`.
+Nur `prompts.py`, `soul.md`, `project.toml` ändern.  
+In einer frischen Session Skill **`livekit-agent-from-brief`** laden — der fragt zuerst und baut dann.
 
 ## Unterlagen
 
