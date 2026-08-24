@@ -3,6 +3,7 @@
 | Datei | Inhalt |
 |---|---|
 | [../BOTLISTE.md](../BOTLISTE.md) | **Botliste + Team-Struktur** |
+| [SESSION-HANDOVER-WEITERBAUEN.md](SESSION-HANDOVER-WEITERBAUEN.md) | **Neue Session: alles zum Weiterbauen** |
 | [SESSION-PROMPT-ARBEITSTEAM.md](SESSION-PROMPT-ARBEITSTEAM.md) | Neue Session: Arbeits-Bots nacheinander bauen |
 | [PLAN-AMINA-V2.md](PLAN-AMINA-V2.md) | Plan-Stand |
 | [HANDOFF.md](HANDOFF.md) | Team-Start, Verbote |
