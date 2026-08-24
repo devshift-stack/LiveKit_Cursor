@@ -86,5 +86,9 @@ In einer frischen Session Skill **`livekit-agent-from-brief`** laden — der fra
 | [docs/local-dev.md](docs/local-dev.md) | uv, Tests, Console |
 | [docs/deploy.md](docs/deploy.md) | LiveKit Cloud |
 | [docs/telephony.md](docs/telephony.md) | FreePBX / TG / SIP (keine Secrets) |
-| [docs/FIXPLAN-AMINA-V2.md](docs/FIXPLAN-AMINA-V2.md) | nächster Amina-Umbau (prüfen, nicht live) |
-| [docs/PROJECT.md](docs/PROJECT.md) | Amina Verkaufs-SoT |
+| [docs/00-LESEN.md](docs/00-LESEN.md) | Index Unterlagen |
+| [docs/HANDOFF.md](docs/HANDOFF.md) | Team-Handover |
+| [docs/FIXPLAN-AMINA-V2.md](docs/FIXPLAN-AMINA-V2.md) | nächster Amina-Umbau (prüfen) |
+| [docs/LIVEKIT-BEST-PRACTICE.md](docs/LIVEKIT-BEST-PRACTICE.md) | LiveKit-Regeln |
+| [docs/RESEARCH.md](docs/RESEARCH.md) | Recherche Session |
+| [docs/PROJECT.md](docs/PROJECT.md) | Amina Verkaufs-SoT (teilweise überholt) |
