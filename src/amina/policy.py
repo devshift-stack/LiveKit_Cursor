@@ -38,4 +38,5 @@ def may_mention_price(user_text: str) -> bool:
 
 
 def should_end_after_second_no(*, no_count: int) -> bool:
-    return no_count >= 2
+    """Hard end only after the third clear no (soft resistance is not a no)."""
+    return no_count >= 3

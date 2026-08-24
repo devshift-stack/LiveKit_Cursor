@@ -77,9 +77,17 @@ class AminaAgent(Agent):
     async def record_clear_no(self, context: RunContext) -> str:
         """Call when the person clearly refuses."""
         self.no_count += 1
-        if self.no_count >= 2:
-            return "Drugo jasno ne. Zahvali se i završi. Bez pritiska."
-        return "Prvo ne. Jedna kratka rečenica, pa ponudi kraj ili kasniji poziv."
+        if self.no_count >= 3:
+            return "Treće tvrdo ne. Zahvali se i završi. Bez pritiska."
+        if self.no_count == 2:
+            return (
+                "Drugo ne. Jedna rečenica razumijevanja, jedna korist vezana za njih, "
+                "pa jedno pitanje. Ne odustaj odmah. Ne doviđenja."
+            )
+        return (
+            "Prvi otpor. Nije kraj. Priznaj, jedno pitanje (vrijeme / voda / šta smeta). "
+            "Nemam vremena = 20 sekundi ili kad da nazoveš. Ne record_clear_no za meko ne."
+        )
 
     @function_tool
     async def mark_dnc(self, context: RunContext) -> str:

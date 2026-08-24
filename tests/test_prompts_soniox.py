@@ -15,6 +15,15 @@ def test_soniox_prompt_sets_english_tags() -> None:
 def test_opener_starts_with_warm_tag() -> None:
     assert "[warm]" in OPENER_INSTRUCTIONS_SONIOX
     assert "Ami-na" not in OPENER_INSTRUCTIONS_SONIOX
+    assert "imate li trenutak" in OPENER_INSTRUCTIONS_SONIOX.lower()
+
+
+def test_sales_fight_and_human_pacing_in_prompt() -> None:
+    text = SYSTEM_INSTRUCTIONS_SONIOX
+    assert "EINWAND" in text
+    assert "record_clear_no SAMO" in text
+    assert "Ne počinji svaki odgovor sa [warm]" in text
+    assert "12–15 riječi" in text or "12-15 riječi" in text
 
 
 def test_v2_agent_uses_soniox_prompt() -> None:

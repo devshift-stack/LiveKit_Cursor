@@ -62,6 +62,8 @@ def build_session(
             websocket_url=SONIOX_WS,
         ),
         turn_handling=TurnHandlingOptions(turn_detection=inference.TurnDetector()),
+        allow_interruptions=True,
+        min_interruption_duration=0.45,
     )
 
 

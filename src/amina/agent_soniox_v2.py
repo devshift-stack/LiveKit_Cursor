@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import asyncio
+
 from livekit import agents
 from livekit.agents import Agent, AgentServer, JobContext, ModelSettings
 
@@ -16,6 +18,8 @@ class AminaSonioxV2Agent(AminaAgent):
         super().__init__(instructions=SYSTEM_INSTRUCTIONS_SONIOX)
 
     async def on_enter(self) -> None:
+        # Outbound: let the person say halo before we talk (LiveKit telephony guide).
+        await asyncio.sleep(1.8)
         await self.session.generate_reply(instructions=OPENER_INSTRUCTIONS_SONIOX)
 
     async def tts_node(self, text, model_settings: ModelSettings):

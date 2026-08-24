@@ -19,4 +19,5 @@ def test_price_only_when_customer_asked() -> None:
 
 def test_second_clear_no_ends_call() -> None:
     assert not should_end_after_second_no(no_count=1)
-    assert should_end_after_second_no(no_count=2)
+    assert not should_end_after_second_no(no_count=2)
+    assert should_end_after_second_no(no_count=3)
