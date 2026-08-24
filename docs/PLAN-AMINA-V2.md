@@ -6,7 +6,7 @@ Nichts am Agent-Code in dieser Aktualisierung. Cloud unverändert: `CA_J8AZ7K6yJ
 
 [`.hermes/plans/2026-08-24_101325-amina-v2-komplett.md`](../.hermes/plans/2026-08-24_101325-amina-v2-komplett.md)
 
-Alte Pläne (092208, 100125) = **ersetzt**.
+Alte Pläne liegen in [`arhiv/`](../arhiv/) (nicht ausführen).
 
 ## Was der neue Plan zusätzlich richtig macht
 
