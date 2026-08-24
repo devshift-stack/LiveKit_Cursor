@@ -15,14 +15,10 @@ Für `bs`: Text umschreiben, **bevor** er zu Fish geht. 0 Extra-Latenz.
 | Đenita | Dženita | đ→dž |
 | Aquaphor, Smile, Firmira | unverändert | keine ASCII-Bindestriche |
 
-## Automatik (live)
+## Automatik (aus, v2.1)
 
-`prepare_tts_text` macht **letzte Silbe** bei Wörtern mit **≥3 Vokalen**:
-`Amina→Ami-na`, `pitanja→pita-nja`, `flaširanu→flašira-nu`.
-1–2 Silben bleiben (`Dobar`, `vodi`). Marken in `do_not_touch` bleiben.
-Lexikon-Liste gewinnt zuerst (đ→dž, Ohr-Fälle).
-
-Nicht: LLM Hyphens schreiben. Nicht: IPA. Nicht: jedes Wort.
+v2 hat **jedes** lange Wort zerlegt (`Reci-te`, `flašira-nu`) — klang schlechter als v1.
+Live: **nur Lexikon** (Ami-na, pita-nja, trenu-tak, đ→dž). Rest wie v1.
 
 ## Regeln
 

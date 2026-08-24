@@ -1,6 +1,6 @@
 # Amina v2 — Aquaphor Smile BiH (LiveKit)
 
-Fish Ela + Silben vor TTS (`prepare_tts_text`). Deepgram Nova-3 `bs` EU. GPT-4.1 Inference Azure.
+Fish Ela + **wenige** Silben (`Ami-na`, `pita-nja`, `trenu-tak`). Keine Voll-Automatik (v2).
 
 ## Lokal testen
 

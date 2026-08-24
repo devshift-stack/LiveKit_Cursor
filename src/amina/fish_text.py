@@ -1,11 +1,14 @@
-"""Prepare LLM text for Fish s2.1-pro."""
+"""Prepare LLM text for Fish s2.1-pro.
+
+Only the static lexicon. No automatic hyphenation of every long word
+(that made v2 sound worse than v1).
+"""
 
 from __future__ import annotations
 
 import re
 
-from amina.lexicon import apply_lexicon, load_lexicon
-from amina.syllables import hyphenate_text
+from amina.lexicon import apply_lexicon
 
 _S1_ROUND = re.compile(r"\((happy|calm|sad|angry|excited|whispering|serious)\)", re.IGNORECASE)
 
@@ -13,6 +16,4 @@ _S1_ROUND = re.compile(r"\((happy|calm|sad|angry|excited|whispering|serious)\)",
 def prepare_tts_text(text: str) -> str:
     cleaned = _S1_ROUND.sub("", text)
     cleaned = re.sub(r" {2,}", " ", cleaned).strip()
-    cleaned = apply_lexicon(cleaned)
-    skip = set(load_lexicon().do_not_touch)
-    return hyphenate_text(cleaned, skip=skip)
+    return apply_lexicon(cleaned)

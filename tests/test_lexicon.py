@@ -37,3 +37,5 @@ def test_hyphenates_ear_verified_opener_words() -> None:
     assert "trenu-tak" in out
     assert "Firmira" in out
     assert "Amina" not in out.replace("Ami-na", "")
+    assert "Reci-te" not in prepare_tts_text("Recite mi, flaširanu vodu.")
+    assert "flaširanu" in prepare_tts_text("Recite mi, flaširanu vodu.")
