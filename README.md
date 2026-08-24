@@ -1,42 +1,86 @@
-# Amina v2 — Aquaphor Smile BiH (LiveKit)
+# VoiceAgents
 
-Fish Ela + **wenige** Silben (`Ami-na`, `pita-nja`, `trenu-tak`). Keine Voll-Automatik (v2).
+LiveKit-Telefonagenten (Bosnisch). Ein Repo, mehrere Agenten.  
+Lokal: `/Users/activi/Code/Projects/LiveKit`  
+GitHub: [devshift-stack/VoiceAgents](https://github.com/devshift-stack/VoiceAgents)
 
-## Lokal testen
+Secrets nie committen. `.env.local` bleibt lokal.
 
-```bash
-/Users/activi/Code/Projects/LiveKit/scripts/start-amina-console.sh
+## Ordner
+
+```
+src/amina/            Fish + Soniox Amina + Template V1
+src/alans_mujo_v3/    Dr Mujo (Familien-Demo)
+scripts/              Start, Clone, GSM-Anruf
+tests/                pytest
+docs/                 Unterlagen
+Dockerfile            Cloud-Worker = nur amina-soniox-v2
 ```
 
-Oder Desktop: `Amina-telefonieren.command`. Stopp: Ctrl+C.
+## Agenten
 
-v1 zurück: `git checkout v0.1-amina`  
-v2: `git checkout v0.2-amina`
+| Name | LiveKit `agent_name` | Stimme | Cloud |
+|---|---|---|---|
+| Amina Fish | `amina` | Fish Ela | nein |
+| Amina Soniox (alt) | `amina-soniox` | Nina, ohne Tag-Prompt | nein |
+| **Amina v2 Soniox** | `amina-soniox-v2` | Nina + Tags, 0.9 | **ja** eu-central |
+| Template V1 | `template-v1` | wie v2, nur Vorlage | nein |
+| Alans_mujo V3 | `alans-mujo-v3` | Daniel | nein |
 
+Details: [docs/agents/](docs/agents/README.md)
 
-Outbound, bosnisch, Fish **Ela**, Deepgram Nova-3 EU, GPT-4.1 über LiveKit Inference (`provider=azure`).
+## Stack (gesperrt bei Soniox-Klonen)
+
+- STT: Deepgram Nova-3, `bs`, EU
+- LLM: GPT-4.1 über LiveKit Inference, Azure
+- TTS Amina v2: Soniox Nina, `tts-rt-v2`, Speed 0.9, EU-WS
+- TTS Mujo: dieselbe Kette, Stimme **Daniel**
+- Tags: `[warm] [calm] [curious] [sincerely] [reassuringly] [softly] [pause]`
+- Keine Fish-Bindestriche auf Soniox
 
 ## Lokal
 
 ```bash
 cd /Users/activi/Code/Projects/LiveKit
 uv sync --group dev
-uv run python scripts/write_env_local.py   # schreibt .env.local, nicht committen
+cp .env.example .env.local   # Keys selbst eintragen
 uv run pytest
-uv run python scripts/fish_sample.py       # Ela-Hörprobe
-uv run python -m amina.agent console       # Mikrofon
-./scripts/start-amina-console.sh           # dasselbe
-# oder Finder: Amina-telefonieren.command
+./scripts/start-amina-soniox-v2-console.sh
+# Mujo:
+uv run python -m alans_mujo_v3.agent console
 ```
 
-## Soniox A/B (lokal)
+Desktop: `Amina-telefonieren.command` (Fish), `Amina-soniox-v2-telefonieren.command` (v2).
+
+## Cloud
+
+Nur **amina-soniox-v2** ist deployed (`CA_J8AZ7K6yJ5o3`, eu-central).  
+Dockerfile `CMD` nicht auf einen anderen Agenten stellen, sonst überschreibt der nächste Deploy Amina.
+
+## GSM-Anruf (nach Yeastar)
 
 ```bash
-./scripts/start-amina-soniox-v2-console.sh
+./scripts/call-live-gsm.sh
 ```
 
-Nina + `tts-rt-v2` + speed **0.9**. Prompt mit Tags `[warm]` `[calm]` … Fish bleibt.
+Fragt die Zielnummer. Log: `~/.hermes/logs/livekit-calls/`.  
+Ruft den **live** Cloud-Agenten (`amina-soniox-v2`), nicht Mujo.
 
-## SoT
+## Neuer Agent vom Template
 
-`docs/PROJECT.md`
+```bash
+uv run python scripts/new-from-template-v1.py --slug firma_x --agent-name firma-x
+```
+
+Nur `prompts.py`, `soul.md`, `project.toml` ändern. Siehe Skill `bosnian-livekit-template-v1`.
+
+## Unterlagen
+
+| Datei | Inhalt |
+|---|---|
+| [docs/agents/README.md](docs/agents/README.md) | alle Agenten |
+| [docs/stack.md](docs/stack.md) | Modelle, Tags, EU |
+| [docs/local-dev.md](docs/local-dev.md) | uv, Tests, Console |
+| [docs/deploy.md](docs/deploy.md) | LiveKit Cloud |
+| [docs/telephony.md](docs/telephony.md) | FreePBX / TG / SIP (keine Secrets) |
+| [docs/PROJECT.md](docs/PROJECT.md) | Amina Verkaufs-SoT |

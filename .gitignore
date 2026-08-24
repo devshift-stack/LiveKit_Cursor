@@ -47,3 +47,7 @@ coverage/
 .coverage
 htmlcov/
 *.log
+call-*.err.log
+
+# Local Hermes call logs
+.hermes-call-logs/
