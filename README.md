@@ -29,7 +29,13 @@ uv run python -m amina.agent console       # Mikrofon
 # oder Finder: Amina-telefonieren.command
 ```
 
-Kein Cloud-Deploy ohne Freigabe (`lk agent create`).
+## Soniox A/B (lokal)
+
+```bash
+./scripts/start-amina-soniox-v2-console.sh
+```
+
+Nina + `tts-rt-v2` + speed **0.9**. Prompt mit Tags `[warm]` `[calm]` … Fish bleibt.
 
 ## SoT
 

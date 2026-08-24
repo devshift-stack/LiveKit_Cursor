@@ -4,7 +4,9 @@ version = "0.2.1"
 description = "Amina — Aquaphor Smile BiH voice agent (LiveKit)"
 requires-python = ">=3.11"
 dependencies = [
-  "livekit-agents[fishaudio,deepgram,openai,silero]~=1.6",
+  "livekit-agents[deepgram,fishaudio,openai,silero,soniox]~=1.6",
+  "opentelemetry-exporter-otlp-proto-http>=1.44.0",
+  "opentelemetry-sdk>=1.44.0",
   "python-dotenv>=1.0",
 ]
 

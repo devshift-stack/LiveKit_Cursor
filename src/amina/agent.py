@@ -22,6 +22,7 @@ from livekit.plugins import deepgram, fishaudio
 
 from amina.fish_text import prepare_tts_text
 from amina.prompts import OPENER_INSTRUCTIONS, SYSTEM_INSTRUCTIONS
+from amina.telemetry import setup_langfuse
 
 load_dotenv(Path(__file__).resolve().parents[2] / ".env.local")
 
@@ -41,8 +42,8 @@ KEYTERMS = [
 
 
 class AminaAgent(Agent):
-    def __init__(self) -> None:
-        super().__init__(instructions=SYSTEM_INSTRUCTIONS)
+    def __init__(self, instructions: str | None = None) -> None:
+        super().__init__(instructions=instructions or SYSTEM_INSTRUCTIONS)
         self.permission: bool | None = None
         self.water: str | None = None
         self.no_count = 0
@@ -151,6 +152,15 @@ server = AgentServer()
 
 @server.rtc_session(agent_name="amina")
 async def amina_entry(ctx: JobContext) -> None:
+    provider = setup_langfuse(
+        metadata={"langfuse.session.id": ctx.room.name, "agent": "amina-fish"}
+    )
+
+    async def flush_trace() -> None:
+        if provider is not None:
+            provider.force_flush()
+
+    ctx.add_shutdown_callback(flush_trace)
     session = build_session()
     await session.start(room=ctx.room, agent=AminaAgent())
 
