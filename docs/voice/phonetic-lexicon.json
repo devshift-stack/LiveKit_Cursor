@@ -1,0 +1,23 @@
+{
+  "engine": "fish-audio-s2.1-pro",
+  "language": "bs",
+  "note": "Apply AFTER LLM output, BEFORE Fish TTS. Keep čćšž. Only swap proven problem words. Inflected forms listed separately.",
+  "do_not_touch": ["č", "ć", "š", "ž", "bokal", "flaša", "slavina", "sedmica", "pouzeće"],
+  "replacements": [
+    {"from": "Đenita", "to": "Dženita", "why": "đ→dž verified on Fish bs audio"},
+    {"from": "Đenite", "to": "Dženite", "why": "inflection"},
+    {"from": "Đeniti", "to": "Dženiti", "why": "inflection"},
+    {"from": "Sarajevo", "to": "Sara-je-vo", "why": "syllables; not Sara-ye-wo (wrong vowel)"},
+    {"from": "Sarajevu", "to": "Sara-je-vu", "why": "locative"},
+    {"from": "Sarajeva", "to": "Sara-je-va", "why": "genitive"},
+    {"from": "Baščaršija", "to": "Baš-čar-ši-ja", "why": "long name, keep diacritics"},
+    {"from": "Aquaphor", "to": "A-kva-for", "why": "brand OOV; ear-check after clone"},
+    {"from": "Firmira", "to": "Fir-mi-ra", "why": "company name; ear-check after clone"},
+    {"from": "Smile", "to": "Smaj-l", "why": "EN brand in bs sentence; ear-check after clone"}
+  ],
+  "pending_ear_check": ["Aquaphor", "Firmira", "Smile", "Amina"],
+  "numbers": {
+    "prices_if_asked": "words_bs",
+    "phone": "digit_by_digit_words_bs"
+  }
+}
