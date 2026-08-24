@@ -1,27 +1,32 @@
 # Botliste + Struktur
 
-Stand: **24.08.2026 10:30 CEST**. Zwei Ebenen, nicht vermischen.
+Stand: **24.08.2026 10:45 CEST**. Zwei Ebenen, nicht vermischen.
 
-1. **Telefon-Bots** = Stimme im Anruf (dieses Repo)  
-2. **Arbeits-Bots** = Hermes-Profile, die den Plan bauen
+Die ersten Rollen sind **nicht gestrichen** — sie waren nur umbenannt. Hier wieder mit denselben Namen:
+
+| Früher gesagt | Ist dieselbe Rolle |
+|---|---|
+| Code / Builder | **Code** |
+| Review | **Review** |
+| Karte / Docs | **Karte/Docs** |
+| Deploy | **Deploy** — vorbereiten = **dev-op**, Knopf = **du** |
 
 SoT Plan: `.hermes/plans/2026-08-24_101325-amina-v2-komplett.md`
 
 ```
-                    DU (Tor: so bauen / Keys / Deploy / Identify)
-                                      |
-                              Orchestrator
-                         (dieser Chat / hermes-livekit)
-                         /         |          \
-              Spur 1 Amina                    Spur 2 Werkzeug
-         /        |        \                      |
-   Research   Builder    Docs                 agent-builder
-   (lesen)    Prompt+    Anleitungen          MCP + Skill + Plugin
-              Voice-Test
+                         DU (so bauen, Keys, Hören, Deploy-Ja, Identify)
+                                          |
+                                   Orchestrator
+                              /        |         \
+                    Spur 1 Amina              Spur 2 Werkzeug
+               /    |     |     \                   |
+        Research  Code  Karte  Review          agent-builder
+        (lesen)  Prompt  Docs  Plan-Check      MCP+Skill+Plugin
+                  Test
                     |
-              Telefon-Bots (src/)
+                 dev-op  (Skript, Secrets, Deploy-Vorbereitung, SIP-Hilfe)
                     |
-         nur Cloud: amina-soniox-v2
+              Telefon-Bots — Cloud nur amina-soniox-v2
 ```
 
 ---
@@ -32,62 +37,72 @@ SoT Plan: `.hermes/plans/2026-08-24_101325-amina-v2-komplett.md`
 |---|---|---|---|---|---|
 | Amina Fish | `amina` | `src/amina/agent.py` | Fish Ela | nein | `01` |
 | Amina Soniox alt | `amina-soniox` | `src/amina/agent_soniox.py` | Nina, Fish-Prompt | nein | `02` |
-| **Amina v2** | **`amina-soniox-v2`** | `agent_soniox_v2.py` + `prompts_soniox.py` | Nina 0,9 | **ja** `CA_J8AZ7K6yJ5o3` eu-central | `03` |
-| Template V1 | `template-v1` | `src/amina/template_v1/` | Nina, locked stack | nein | `04` |
+| **Amina v2** | **`amina-soniox-v2`** | `agent_soniox_v2.py` + `prompts_soniox.py` | Nina 0,9 | **ja** `CA_J8AZ7K6yJ5o3` | `03` |
+| Template V1 | `template-v1` | `src/amina/template_v1/` | Nina | nein | `04` |
 | Alans_mujo V3 | `alans-mujo-v3` | `src/alans_mujo_v3/` | Daniel | nein | `05` |
 
 Live = **nur v2**. Andere nicht löschen.  
-Wählen: Desktop `00` (jetzt: Dispatch **vor** Wait — Plan Task 5 dreht das).  
-Registry-Zahlen: `AGENTEN.md` (`uv run python scripts/update-agent-registry.py`).
+`00-Cloud-Anruf`: Plan Task 5 dreht auf SIP-Wait **vor** Dispatch.
 
 ---
 
-## 2. Arbeits-Bots (Hermes-Profile)
+## 2. Arbeits-Bots (alle Rollen)
 
-| Rolle im Plan | Profil / Wrapper | Tut | Tut nicht |
+| Rolle | Profil | Arbeit | Nicht |
 |---|---|---|---|
-| **Orchestrator** | default / `hermes-livekit` | verteilt, prüft Plan | nicht 200 Zeilen Prompt allein |
-| **Research** | `research` | Docs, SDK, SIP, Schwelle | kein Prompt, kein Deploy |
-| **Builder** | `hermes-livekit` oder `prompting-salesteleagent` | Prompt, Turns, Skript, Tests, Console | kein MCP-Server |
-| **Docs** | ein Agent (research oder default) | `docs/`, Karte, HANDOFF | kein `src/` außer Karten-String |
-| **Werkzeug** | `agent-builder` | Skill + dünner MCP + optional Plugin | **kein** Amina-`src/` |
-| **Tor** | **du** | so bauen, Keys, Hören, deployen, Identify 330 | — |
+| **Orchestrator** | dieser Chat | verteilt, hält Plan | nicht alles selbst coden |
+| **Research** | `research` | Docs/SDK lesen | kein Prompt, kein Deploy-Knopf |
+| **Code** (Builder) | `hermes-livekit` | Prompt, Turns, Tests, Console | kein MCP-Server, kein `lk deploy` ohne dich |
+| **Karte / Docs** | Docs-Agent | Produktkarte, Anleitungen, HANDOFF | kein Produktionscode außer Fakten-String |
+| **Review** | Orchestrator nach jedem Commit | Diff gegen Plan, Tests, kein NSF/Sleep | nicht den Code selbst schreiben |
+| **dev-op** | `dev-op` | Call-Skript-Reihenfolge, Secrets-Check, `lk agent list`, Deploy-Befehle vorbereiten, SIP/Identify **mit dir** | kein Prompt, kein „deployen“ ohne dein Ja |
+| **Deploy** | **dev-op bereitet vor**, **du drückst ja** | Task 13 | Keys nicht in den Chat |
+| **Werkzeug** | `agent-builder` | Skill + MCP + Plugin (Spur 2) | kein Amina-`src/` |
+| **Tor** | **du** | so bauen, Keys, Hören, Deploy-Ja, Identify 330 | — |
 
-### Profile die es gibt — für **diesen** Plan nicht nötig
-
-`barbares`, `dograh`, `hermesvoice`, `homer`, `marge`, `sommer`, `creative`, `dev-op`, `mlops`, `n8n-workflow`, `xai-voice-dograh`, `ki-voice-agent`
-
-Die nicht in Spur 1/2 ziehen (zu viel, falscher Stack).
+**dev-op ist Pflicht** — nicht optional. Ohne ihn bleiben Skript, Secrets und Cloud-Check liegen.
 
 ---
 
-## 3. Zwei Spuren
+## 3. Nicht in diesem Plan
 
-| Spur | Wer | Ziel |
+`barbares`, `dograh`, `hermesvoice`, `homer`, `marge`, `sommer`, `creative`, `mlops`, `n8n-workflow`, `xai-voice-dograh`, `ki-voice-agent`
+
+(`dev-op` steht **oben** — nicht in dieser Liste.)
+
+---
+
+## 4. Spuren
+
+| Spur | Wer | Tasks |
 |---|---|---|
-| **1 Amina** | Research → Builder → Docs → du | Plan Tasks 1–8, 11–12, dann 9/13/14 mit dir |
-| **2 Werkzeug** | agent-builder | paralleles Skill/MCP/Plugin; blockiert Spur 1 nicht |
+| **1a Code** | Code | 1–5, 7–8, 11–12 |
+| **1b Karte** | Karte/Docs | 6, Anleitungen |
+| **1c Ops** | dev-op | Skript-Reihenfolge, 10 eu-central, 9 Secrets-Check |
+| **1d Review** | Review | nach jedem Commit von 1a–1c |
+| **2 Werkzeug** | agent-builder | parallel, blockiert 1 nicht |
+| **Tor** | du + dev-op | 13 Deploy, 14 Identify |
 
-Nicht: zwei Builder in `agent_soniox.py`. Nicht: 10er-Cluster.
+Nicht zwei Codeschreiber in `agent_soniox.py`.
 
 ---
 
-## 4. Reihenfolge
+## 5. Reihenfolge
 
 1. Du: **so bauen**  
-2. Parallel: Spur 1 Code + Spur 1 Docs-Karte + Spur 2 Gerüst  
-3. Review gegen den Komplett-Plan  
-4. Du: lokal `03`, dann Keys, dann **deployen**  
-5. Call-Skript neue Reihenfolge, Identify extra  
+2. Parallel: Code + Karte + dev-op (Skript) + Spur 2  
+3. Review  
+4. Du hörst `03`  
+5. dev-op legt Deploy bereit → du sagst **deployen**  
+6. Identify nur mit deinem Apply  
 
 ---
 
-## 5. Dateien
+## 6. Dateien
 
 | Datei | Inhalt |
 |---|---|
 | Diese | Botliste + Team |
-| `AGENTEN.md` | nur Telefon-Bots aus `src/` |
+| `AGENTEN.md` | nur Telefon-Bots |
 | `docs/PLAN-AMINA-V2.md` | Plan-Stand |
-| `docs/agents/` | ein Blatt pro Telefon-Bot |
 | `arhiv/` | alte Pläne |
