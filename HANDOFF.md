@@ -1,16 +1,15 @@
 # HANDOVER — VoiceAgents / LiveKit Amina
 
-**Für das nächste Team.** Stand 24.08.2026 **10:01** CEST.  
+**Für das nächste Team.** Stand 24.08.2026 **10:13** CEST.  
 Kein Secret in dieser Datei. Keys nur `.env.local` (nicht im Git).
 
 Repo lokal: `/Users/activi/Code/Projects/LiveKit`  
 GitHub: https://github.com/devshift-stack/VoiceAgents  
-Branch: `main` (Docs-Stand nach dieser Aktualisierung)
+Branch: `main`
 
 **Nächster Auftrag (nicht starten ohne User-„so bauen“):**  
-1. Schwellen-Zahl: `.hermes/plans/2026-08-24_100125-amina-v2-threshold-und-stand.md`  
-2. Rest Produktion: `.hermes/plans/2026-08-24_092208-amina-v2-production.md`  
-Kurz: `docs/PLAN-AMINA-V2.md` + `docs/FIXPLAN-AMINA-V2.md` + `docs/TURN-SCHWELLE.md`
+`.hermes/plans/2026-08-24_101325-amina-v2-komplett.md`  
+Kurz: `docs/PLAN-AMINA-V2.md`
 
 ---
 
