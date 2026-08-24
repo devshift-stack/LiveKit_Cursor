@@ -1,0 +1,18 @@
+# EDITABLE — only this file + prompts.py + soul.md
+# LOCKED stack is imported from amina.agent_soniox.build_session. Do not copy TTS/STT/LLM here.
+
+[editable]
+agent_name = "template-v1"
+display_name = "Template V1"
+persona_name = "Amina"
+company = "Firmira"
+product = "Aquaphor Smile bokal"
+
+[locked]
+# Informational. Changing these keys does nothing. Edit is forbidden.
+stt = "deepgram nova-3 language=bs EU"
+llm = "openai/gpt-4.1 provider=azure"
+tts = "soniox Nina tts-rt-v2 speed=0.9 language=bs EU-WS"
+tags = "[warm] [calm] [curious] [sincerely] [reassuringly] [softly] [pause]"
+hyphens = "forbidden"
+region = "eu-central"
