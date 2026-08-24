@@ -1,8 +1,6 @@
-# Fixplan Amina v2 — nur Steinbruch
+# Fixplan Amina v2 — zur Prüfung (noch nicht gebaut)
 
-Stand: 2026-08-24. **Nicht so bauen.** User 24.08.: Gespräch **allgemein**, nicht stur hintereinander, nicht fix 0–7.
-
-Gültiges Handover: `docs/SESSION-HANDOVER-WEITERBAUEN.md`
+Stand: 2026-08-24. **Kein Deploy, kein Code-Umbau** bis du „so bauen“ sagst.
 
 Cloud jetzt: alte Version `CA_J8AZ7K6yJ5o3` (05:27). Lokal Git hat schon Warte-Sleep + längeren Prompt — **dieser Plan ersetzt das**, nicht „draufstapeln“.
 
