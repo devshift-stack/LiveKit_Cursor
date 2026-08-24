@@ -1,12 +1,14 @@
 # Arbeits-Bots — nur den Plan umsetzen
 
-Stand: **24.08.2026 11:10 CEST**  
+**Orchestrator + Planner = Hermes main (`default`). Nicht der User.**
+
+Stand: **24.08.2026 11:15 CEST**  
 Plan-SoT: `.hermes/plans/2026-08-24_101325-amina-v2-komplett.md`
 
 | # | Rolle | Profil | Plan-Tasks |
 |---|---|---|---|
 | 1 | **Architekt** | `hermes-livekit` Struktur | 3, 5, 8 — *wie* (SIP, Turns, Session) |
-| 2 | **Planner** | dieser Chat | Plan halten, nichts bauen |
+| 2 | **Planner** | **Hermes main** (`default`) — nicht der User | Plan halten, nichts bauen |
 | 3 | **Research** | `research` | lesen (Docs/SDK) vor 3, 5, 8 |
 | 4 | **Verify** | Research + Architekt | Signaturen/`lk` (kein extra Mensch) |
 | 5 | **Code** = Prompt + Test = Implement | `hermes-livekit` | **1–8, 11–12** |
