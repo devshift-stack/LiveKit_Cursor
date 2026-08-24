@@ -8,6 +8,7 @@ Der **live** Cloud-Agent.
 - TTS: Nina, tts-rt-v2, 0.9, EU-WS
 - Start lokal: `./scripts/start-amina-soniox-v2-console.sh`
 - Cloud: `CA_J8AZ7K6yJ5o3`, eu-central, Dockerfile CMD
-- Git: `v0.2-soniox`
+- Git: `v0.2-soniox` lokal; Cloud-Image älter
+- **Nächster Umbau:** [docs/FIXPLAN-AMINA-V2.md](../FIXPLAN-AMINA-V2.md) — erst nach Freigabe
 
 Die ältere Datei `agent_soniox.py` (`amina-soniox`) hat denselben Stack, aber den Fish-Prompt. Nicht Cloud.
