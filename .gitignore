@@ -51,3 +51,6 @@ call-*.err.log
 
 # Local Hermes call logs
 .hermes-call-logs/
+
+# Timestamped LiveKit call runs (keep README)
+logs/calls/*/

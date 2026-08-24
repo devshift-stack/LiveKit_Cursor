@@ -139,6 +139,7 @@ def render(rows: list[dict]) -> str:
         "| Amina v2 | Desktop `03-Amina-v2-Soniox.command` |",
         "| Template V1 | Desktop `04-Template-V1.command` |",
         "| Mujo | Desktop `05-Alans-Mujo-V3.command` |",
+        "| Cloud-Anruf (wählen) | Desktop `00-Cloud-Anruf.command` |",
         "| GSM-Call (Cloud-Amina) | `./scripts/call-live-gsm.sh` |",
         "",
     ]

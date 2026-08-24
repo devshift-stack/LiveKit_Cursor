@@ -6,7 +6,7 @@ Ein Blick. Quelle: Dateien unter `src/`. Neu schreiben:
 uv run python scripts/update-agent-registry.py
 ```
 
-Zuletzt gebaut: **2026-08-24 07:44 CEST**
+Zuletzt gebaut: **2026-08-24 07:49 CEST**
 
 | Anzeige | LiveKit-Name | Datei | Stimme | Rolle | Letzter Git |
 |---|---|---|---|---|---|
@@ -33,4 +33,5 @@ Mujo und Template sind **nicht** deployed.
 | Amina v2 | Desktop `03-Amina-v2-Soniox.command` |
 | Template V1 | Desktop `04-Template-V1.command` |
 | Mujo | Desktop `05-Alans-Mujo-V3.command` |
+| Cloud-Anruf (wählen) | Desktop `00-Cloud-Anruf.command` |
 | GSM-Call (Cloud-Amina) | `./scripts/call-live-gsm.sh` |
