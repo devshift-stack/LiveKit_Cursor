@@ -51,9 +51,11 @@ TurnHandlingOptions(
 
 ### TurnDetector und Bosnisch
 
-Audio-TurnDetector: **14 Sprachen, kein `bs`**.  
-Er bleibt nützlich (VAD/Akustik), nutzt aber **keine** bosnischen Satzgrenzen.  
-Gegenmittel: etwas mehr `min_delay`, Telephony-Rauschfilter — nicht Detector aus.
+Detector **funktioniert** (Audio: Ton, Pause, Rhythmus). Nicht abschalten.
+
+14 Sprachen haben eine **Werks-Geduld-Zahl** (`unlikely_threshold`). **`bs` steht nicht in der Liste** → LiveKit nimmt den **Default**, nicht „aus“.
+
+Wir setzen **unsere** Zahl (Scalar, weil Amina nur Bosnisch spricht). Höher = wartet länger. Jederzeit Env `AMINA_TURN_BS_THRESHOLD`. Kein neues Modell. Details: [TURN-SCHWELLE.md](TURN-SCHWELLE.md).
 
 ## Phasen: ein Agent vs Handoff vs Task
 

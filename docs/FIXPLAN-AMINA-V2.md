@@ -63,7 +63,7 @@ Phase 1 kommt **vor** langem Nachfragen. Der Kunde weiß nach 10 s, **worum** es
 | Warten nach Abheben | Nach **SIP-Teilnehmer**, nicht `sleep` beim Klingeln |
 | Pausen | LiveKit: warten nach **dir**. Soniox: `[pause]` / `...` **in ihrem** Satz, ungleich |
 | Unterbrechen | An, `adaptive`, ca. 0,5 s — du kannst reinreden |
-| TurnDetector | Bleibt an. Bosnisch kennt er nicht → etwas länger warten nach dir, nicht abschneiden |
+| TurnDetector | **An.** Keine Werks-Zahl für `bs` → **eigene Zahl** (Start 0,55, Env). Siehe [TURN-SCHWELLE.md](TURN-SCHWELLE.md) |
 | Krisp Telephony | **Später**, A/B — kann falsches „Nein“ aus Rauschen mindern |
 | Handoffs | **Nicht jetzt.** Nur später für Adresse/Telefon als Task |
 

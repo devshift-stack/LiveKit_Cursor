@@ -23,6 +23,19 @@ Maya + `tts-rt-v2` = HTTP 400. v2-Stimmen: Nina (Amina), Daniel (Mujo).
 
 ---
 
+## A2. TurnDetector-Schwelle (24.08. 10:01)
+
+Quelle: LiveKit Docs *turn-detector*.
+
+- Audio-Modell **arbeitet ohne** `bs` in der 14er-Liste (Default-Zahl).
+- „bs bauen“ = **eine Zahl** `unlikely_threshold` (Scalar), Env `AMINA_TURN_BS_THRESHOLD`.
+- Start geplant **0,55**. Höher = geduldiger. Jederzeit ändern.
+- Nicht: neues Modell, nicht VAD ersetzen.
+
+Siehe `docs/TURN-SCHWELLE.md`.
+
+---
+
 ## B. Verkauf / Literatur
 
 | Quelle | Nutzen hier |

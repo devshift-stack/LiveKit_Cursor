@@ -1,14 +1,16 @@
 # HANDOVER — VoiceAgents / LiveKit Amina
 
-**Für das nächste Team.** Stand 24.08.2026 CEST.  
+**Für das nächste Team.** Stand 24.08.2026 **10:01** CEST.  
 Kein Secret in dieser Datei. Keys nur `.env.local` (nicht im Git).
 
 Repo lokal: `/Users/activi/Code/Projects/LiveKit`  
 GitHub: https://github.com/devshift-stack/VoiceAgents  
-Branch: `main` (HEAD bei Erstellung dieses Handovers: `78364b8`)
+Branch: `main` (Docs-Stand nach dieser Aktualisierung)
 
 **Nächster Auftrag (nicht starten ohne User-„so bauen“):**  
-`docs/FIXPLAN-AMINA-V2.md`
+1. Schwellen-Zahl: `.hermes/plans/2026-08-24_100125-amina-v2-threshold-und-stand.md`  
+2. Rest Produktion: `.hermes/plans/2026-08-24_092208-amina-v2-production.md`  
+Kurz: `docs/PLAN-AMINA-V2.md` + `docs/FIXPLAN-AMINA-V2.md` + `docs/TURN-SCHWELLE.md`
 
 ---
 
@@ -108,13 +110,14 @@ CLI: `lk` Projekt `aai`. Langfuse: `langfuse --env .env.local api traces list`.
 
 ## 7. Dateien lesen (Reihenfolge)
 
-1. Diese Datei  
-2. `docs/FIXPLAN-AMINA-V2.md`  
-3. `docs/LIVEKIT-BEST-PRACTICE.md`  
-4. `docs/RESEARCH.md`  
-5. `docs/PROJECT.md` (Verkaufs-SoT, teils überholt: „kein Produkt im Open“ vs User jetzt **Produkt in Satz 1**)  
-6. `AGENTEN.md`  
-7. Code: `prompts_soniox.py`, `agent_soniox_v2.py`, `agent_soniox.py` (`build_session`), `agent.py` (Tools)
+1. `docs/PLAN-AMINA-V2.md`  
+2. `docs/TURN-SCHWELLE.md`  
+3. `docs/FIXPLAN-AMINA-V2.md`  
+4. `docs/LIVEKIT-BEST-PRACTICE.md`  
+5. `docs/RESEARCH.md`  
+6. `docs/PROJECT.md` (Open ohne Produkt — **überholt**)  
+7. `AGENTEN.md`  
+8. Code: `prompts_soniox.py`, `agent_soniox_v2.py`, `agent_soniox.py`, `agent.py`
 
 ---
 
@@ -128,18 +131,21 @@ CLI: `lk` Projekt `aai`. Langfuse: `langfuse --env .env.local api traces list`.
 - Dograh-Graph 1:1 nachbauen  
 - Cloud deployen ohne User-OK  
 - `sleep(1.8)` als „Warten nach Abheben“ belassen  
+- TurnDetector **abschalten** (er funktioniert; wir setzen nur eine Zahl)  
 
 ---
 
 ## 9. Offene Arbeit (Team)
 
-1. Fixplan umsetzen (Phasen + weiches Nein + Zuhören + Produkt Satz 1)  
-2. Sleep ersetzen durch `wait_for_participant` nach Answer  
-3. `TurnHandlingOptions` laut Docs (`adaptive`, 0,5 s, endpointing)  
-4. Produktkarte `docs/product/smile-karte.md` — User liefert Zertifikat-URL  
-5. Identify 330 + Dialplan vs Ext 300 klären  
-6. Optional Krisp Telephony A/B  
-7. Dann erst `lk agent deploy`  
-8. Langfuse-Hörtest + Scores  
+1. **Geduld-Zahl** einbauen (`turns.py`, Start 0,55, Env) — Plan 10:01  
+2. Fixplan: Phasen + weiches Nein + Zuhören + Produkt Satz 1  
+3. Sleep ersetzen durch `wait_for_participant`  
+4. `TurnHandlingOptions` laut Docs + unsere Schwelle  
+5. Produktkarte — User liefert Zertifikat-URL  
+6. Langfuse: Keys rotieren, Cloud-Secrets, Warnung wenn leer  
+7. eu-central Prozess in toml/docs festhalten  
+8. Identify 330 + Dialplan vs Ext 300  
+9. Dann erst `lk agent deploy`  
+10. Hörtest + Zahl ggf. drehen  
 
-Owner: Team. User prüft Fixplan + Karte.
+Owner: Team. User sagt **so bauen**.

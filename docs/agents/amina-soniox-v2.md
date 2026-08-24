@@ -9,6 +9,7 @@ Der **live** Cloud-Agent.
 - Start lokal: `./scripts/start-amina-soniox-v2-console.sh`
 - Cloud: `CA_J8AZ7K6yJ5o3`, eu-central, Dockerfile CMD
 - Git: `v0.2-soniox` lokal; Cloud-Image älter
-- **Nächster Umbau:** [docs/FIXPLAN-AMINA-V2.md](../FIXPLAN-AMINA-V2.md) — erst nach Freigabe
+- **Nächster Umbau:** [PLAN-AMINA-V2.md](../PLAN-AMINA-V2.md) — erst nach „so bauen“
+- Geduld-Zahl (geplant): [TURN-SCHWELLE.md](../TURN-SCHWELLE.md)
 
 Die ältere Datei `agent_soniox.py` (`amina-soniox`) hat denselben Stack, aber den Fish-Prompt. Nicht Cloud.
