@@ -9,7 +9,7 @@ Branch: `main`
 
 **Nächster Auftrag (nicht starten ohne User-„so bauen“):**  
 `.hermes/plans/2026-08-24_101325-amina-v2-komplett.md`  
-Kurz: `docs/PLAN-AMINA-V2.md`
+Kurz: `docs/PLAN-AMINA-V2.md` · Team: `BOTLISTE.md`
 
 ---
 

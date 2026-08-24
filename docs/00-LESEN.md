@@ -2,7 +2,8 @@
 
 | Datei | Inhalt |
 |---|---|
-| [PLAN-AMINA-V2.md](PLAN-AMINA-V2.md) | **Aktueller Gesamtstand** (24.08. 10:13) |
+| [../BOTLISTE.md](../BOTLISTE.md) | **Botliste + Team-Struktur** |
+| [PLAN-AMINA-V2.md](PLAN-AMINA-V2.md) | Plan-Stand |
 | [HANDOFF.md](HANDOFF.md) | Team-Start, Verbote |
 | [FIXPLAN-AMINA-V2.md](FIXPLAN-AMINA-V2.md) | Verkaufsphasen (warten auf „so bauen“) |
 | [TURN-SCHWELLE.md](TURN-SCHWELLE.md) | Geduld-Zahl: eine Config, jederzeit änderbar |

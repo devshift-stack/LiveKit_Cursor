@@ -86,7 +86,8 @@ In einer frischen Session Skill **`livekit-agent-from-brief`** laden — der fra
 | [docs/local-dev.md](docs/local-dev.md) | uv, Tests, Console |
 | [docs/deploy.md](docs/deploy.md) | LiveKit Cloud |
 | [docs/telephony.md](docs/telephony.md) | FreePBX / TG / SIP (keine Secrets) |
-| [docs/PLAN-AMINA-V2.md](docs/PLAN-AMINA-V2.md) | **Gesamtstand 10:01** |
+| [BOTLISTE.md](BOTLISTE.md) | Telefon-Bots + Arbeits-Bots + Spuren |
+| [docs/PLAN-AMINA-V2.md](docs/PLAN-AMINA-V2.md) | **Gesamtstand 10:13** |
 | [docs/TURN-SCHWELLE.md](docs/TURN-SCHWELLE.md) | Geduld-Zahl (Config) |
 | [docs/00-LESEN.md](docs/00-LESEN.md) | Index Unterlagen |
 | [docs/HANDOFF.md](docs/HANDOFF.md) | Team-Handover |
