@@ -19,6 +19,8 @@ Dockerfile            Cloud-Worker = nur amina-soniox-v2
 
 ## Agenten
 
+Ein Blick: **[AGENTEN.md](AGENTEN.md)** (nach neuem Agenten: `uv run python scripts/update-agent-registry.py`).
+
 | Name | LiveKit `agent_name` | Stimme | Cloud |
 |---|---|---|---|
 | Amina Fish | `amina` | Fish Ela | nein |
