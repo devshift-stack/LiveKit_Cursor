@@ -285,7 +285,9 @@ Qualität vs Ela: **unbekannt**, nur Ohr-A/B.
 
 Standard-API nicht auf EU begrenzbar. Behalten wegen Latenz/Qualität. Detail: `docs/voice/TTS_EU.md`.
 
-Noch offen: Preis KM, SIP-Carrier, n8n, Soniox-Clone **nach** Ela-Ohr.
+Noch offen: Preis KM, SIP-Carrier, n8n, Tonfall, Soniox-Clone **nach** Ela-Ohr.
+
+**v2 (tag `v0.2-amina`):** Silben vor Fish (`prepare_tts_text` + Lexikon). Console: `scripts/start-amina-console.sh`.
 
 Agent-Code: `src/amina/` — lokal `uv run python -m amina.agent console`. Kein Cloud-Deploy ohne Freigabe.
 

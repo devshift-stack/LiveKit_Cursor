@@ -64,7 +64,7 @@ class AminaAgent(Agent):
         self.permission = granted
         if not granted:
             return "Nema vremena. Ponudi kratki povratni poziv ili se ljubazno javi."
-        return "Ima trenutak. Postavi jedno pitanje o vodi (slavina / flaširana / mješovito / filter)."
+        return "Ima trenutak. Postavi jedno pitanje o vodi (slavina, flaširana, mješovito, ili već uređaj)."
 
     @function_tool
     async def record_water_source(self, context: RunContext, source: str) -> str:
@@ -84,7 +84,7 @@ class AminaAgent(Agent):
     async def mark_dnc(self, context: RunContext) -> str:
         """Do-not-call. End immediately."""
         self.dnc = True
-        return "DNC. Odmah prekini. Bez prodaje."
+        return "Ne zovi. Odmah prekini. Bez prodaje."
 
     @function_tool
     async def request_callback(self, context: RunContext, when: str, phone: str) -> str:
@@ -95,7 +95,7 @@ class AminaAgent(Agent):
     async def start_order(self, context: RunContext) -> str:
         """Only after they clearly say yes to an order."""
         if self.dnc:
-            return "DNC aktivan. Ne uzimaj narudžbu."
+            return "Zabrana poziva je aktivna. Ne uzimaj narudžbu."
         return (
             "Prvo pitaj saglasnost za ime i adresu. "
             "Zatim jedno polje po potezu: ime, adresa, telefon. "
@@ -112,7 +112,7 @@ class AminaAgent(Agent):
     ) -> str:
         """Save a draft order after they confirm the readback."""
         if self.dnc:
-            return "DNC. Ne šalji narudžbu."
+            return "Ne zovi. Ne šalji narudžbu."
         return (
             f"Nacrt spreman: {name}, {address}, {phone}, Aquaphor Smile bokal, pouzeće. "
             "Ponovi sve i traži izričito da."
@@ -136,7 +136,10 @@ def build_session() -> AgentSession:
             normalize=False,
             normalize_loudness=True,
             latency_mode="balanced",
-            temperature=0.6,
+            temperature=0.45,
+            chunk_length=300,
+            min_chunk_length=80,
+            condition_on_previous_chunks=True,
         ),
         turn_handling=TurnHandlingOptions(turn_detection=inference.TurnDetector()),
     )

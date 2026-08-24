@@ -1,21 +1,30 @@
 {
   "engine": "fish-audio-s2.1-pro",
   "language": "bs",
-  "note": "Apply AFTER LLM output, BEFORE Fish TTS. Keep čćšž. Only swap proven problem words. Inflected forms listed separately.",
-  "do_not_touch": ["č", "ć", "š", "ž", "bokal", "flaša", "slavina", "sedmica", "pouzeće"],
+  "note": "AFTER LLM, BEFORE Fish. Keep čćšž. No IPA — Fish phoneme tags are EN/ZH/JA only. Ear-verified syllable hyphens only.",
+  "do_not_touch": ["č", "ć", "š", "ž", "bokal", "flaša", "slavina", "sedmica", "pouzeće", "Aquaphor", "Firmira", "Smile", "Sarajevo", "kratkog", "kratko", "kratak"],
   "replacements": [
-    {"from": "Đenita", "to": "Dženita", "why": "đ→dž verified on Fish bs audio"},
+    {"from": "Đenita", "to": "Dženita", "why": "đ→dž verified"},
     {"from": "Đenite", "to": "Dženite", "why": "inflection"},
     {"from": "Đeniti", "to": "Dženiti", "why": "inflection"},
-    {"from": "Sarajevo", "to": "Sara-je-vo", "why": "syllables; not Sara-ye-wo (wrong vowel)"},
-    {"from": "Sarajevu", "to": "Sara-je-vu", "why": "locative"},
-    {"from": "Sarajeva", "to": "Sara-je-va", "why": "genitive"},
-    {"from": "Baščaršija", "to": "Baš-čar-ši-ja", "why": "long name, keep diacritics"},
-    {"from": "Aquaphor", "to": "A-kva-for", "why": "brand OOV; ear-check after clone"},
-    {"from": "Firmira", "to": "Fir-mi-ra", "why": "company name; ear-check after clone"},
-    {"from": "Smile", "to": "Smaj-l", "why": "EN brand in bs sentence; ear-check after clone"}
+    {"from": "Amina", "to": "Ami-na", "why": "ear 2026-08-24: unhyphenated G2P wrong"},
+    {"from": "Amine", "to": "Ami-ne", "why": "vocative/dative"},
+    {"from": "Amini", "to": "Ami-ni", "why": "locative"},
+    {"from": "pitanjem", "to": "pita-njem", "why": "instrumental of ear-verified pitanja"},
+    {"from": "pitanja", "to": "pita-nja", "why": "ear 2026-08-24"},
+    {"from": "pitanju", "to": "pita-nju", "why": "dative"},
+    {"from": "pitanje", "to": "pita-nje", "why": "nominative"},
+    {"from": "trenutka", "to": "trenu-tka", "why": "genitive of ear-verified trenutak"},
+    {"from": "trenutku", "to": "trenu-tku", "why": "dative"},
+    {"from": "trenutke", "to": "trenu-tke", "why": "accusative pl"},
+    {"from": "trenutak", "to": "trenu-tak", "why": "ear 2026-08-24"}
   ],
-  "pending_ear_check": ["Aquaphor", "Firmira", "Smile", "Amina"],
+  "do_not_hyphenate": [
+    {"from": "Aquaphor", "to": "A-kva-for", "why": "ASCII brand; looks English"},
+    {"from": "Smile", "to": "Smaj-l", "why": "same"},
+    {"from": "Firmira", "to": "Fir-mi-ra", "why": "left unhyphenated in the passing ear sample"}
+  ],
+  "pending_ear_check": ["Aquaphor", "Firmira", "Smile", "Sarajevo"],
   "numbers": {
     "prices_if_asked": "words_bs",
     "phone": "digit_by_digit_words_bs"

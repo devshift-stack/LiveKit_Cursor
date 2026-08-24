@@ -37,6 +37,6 @@ def load_lexicon(path: Path | None = None) -> Lexicon:
 def apply_lexicon(text: str, lexicon: Lexicon | None = None) -> str:
     lex = lexicon or load_lexicon()
     out = text
-    for rep in lex.replacements:
+    for rep in sorted(lex.replacements, key=lambda r: len(r.src), reverse=True):
         out = out.replace(rep.src, rep.dest)
     return out

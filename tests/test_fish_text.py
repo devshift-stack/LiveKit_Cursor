@@ -15,10 +15,11 @@ def test_strips_round_s1_tags() -> None:
     assert "Dobar dan." in out
 
 
-def test_applies_lexicon_after_tags() -> None:
+def test_keeps_brands_latin_after_tags() -> None:
     raw = "[confident] Baš zbog toga spominjem [emphasis] Aquaphor Smile bokal."
     out = prepare_tts_text(raw)
     assert "[confident]" in out
-    assert "[emphasis]" in out
-    assert "A-kva-for" in out
-    assert "Smaj-l" in out
+    assert "Aquaphor" in out
+    assert "Smile" in out
+    assert "A-kva-for" not in out
+    assert "Smaj-l" not in out

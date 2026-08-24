@@ -1,37 +1,32 @@
 # Phonetik-Liste Amina (Fish)
 
-Fish hat **kein** Aussprache-Wörterbuch. Fix = Umschreiben direkt vor TTS.
+Fish hat **kein** Aussprache-Wörterbuch und **keine** bosnischen Phonem-Tags.
+Offiziell nur EN (CMU Arpabet), ZH (Pinyin), JA (Romaji) via `<|phoneme_start|>`.
 
-Zwei Schichten:
+Für `bs`: Text umschreiben, **bevor** er zu Fish geht. 0 Extra-Latenz.
 
-1. Diese statische Liste (immer, 0 Latenz)  
-2. LLM nur für **neue** Kundennamen (unsicher)
+## Live (Ohr 2026-08-24)
 
-## Anfassen
+| Original | An Fish | Status |
+|----------|---------|--------|
+| Amina / Amine / Amini | Ami-na / Ami-ne / Ami-ni | Ohr ok |
+| pitanje / pitanja / … | pita-nje / pita-nja | Ohr ok |
+| trenutak / … | trenu-tak | Ohr ok |
+| Đenita | Dženita | đ→dž |
+| Aquaphor, Smile, Firmira | unverändert | keine ASCII-Bindestriche |
 
-| Original | Gesprochen | Status |
-|----------|------------|--------|
-| Đenita / Đenite / Đeniti | Dženita / Dženite / Dženiti | verifiziert (đ→dž) |
-| Sarajevo | Sara-je-vo | Regel; **nicht** Sara-ye-wo |
-| Baščaršija | Baš-čar-ši-ja | Silben, č/š behalten |
-| Aquaphor | A-kva-for | **Ohr nach Clone** |
-| Firmira | Fir-mi-ra | **Ohr nach Clone** |
-| Smile | Smaj-l | **Ohr nach Clone** |
+## Automatik (live)
 
-Maschine: `phonetic-lexicon.json`.
+`prepare_tts_text` macht **letzte Silbe** bei Wörtern mit **≥3 Vokalen**:
+`Amina→Ami-na`, `pitanja→pita-nja`, `flaširanu→flašira-nu`.
+1–2 Silben bleiben (`Dobar`, `vodi`). Marken in `do_not_touch` bleiben.
+Lexikon-Liste gewinnt zuerst (đ→dž, Ohr-Fälle).
 
-## Nicht anfassen
+Nicht: LLM Hyphens schreiben. Nicht: IPA. Nicht: jedes Wort.
 
-č ć š ž. Wörter wie bokal, flaša, slavina, sedmica, hanyaće — normale bs-Wörter.
+## Regeln
 
-## Regeln für neue Namen
-
-1. Nur ändern, wenn es falsch **klingt**  
-2. `đ` → `dž`  
-3. Lange Namen: Bindestriche, Buchstaben lassen  
-4. Kein ch/sh statt č/š  
-5. Fälle extra listen (Amina/Amine/Amini)
-
-## Nach Clone-ID
-
-Kurze Testdatei sprechen, Ohr: Aquaphor, Smile, Firmira, Amina, Sarajevo, eine Adresse mit č/š, eine Telefonnummer.
+1. Buchstaben lassen (čćšž).
+2. Silben-Bindestrich, keine IPA.
+3. Kein `A-kva-for` / `Smaj-l` (sieht englisch aus).
+4. Neue Wörter nur nach Ohr in `phonetic-lexicon.json`.
