@@ -36,12 +36,19 @@ class AminaSonioxAgent(AminaAgent):
         return Agent.default.tts_node(self, text, model_settings)
 
 
-def build_session() -> AgentSession:
+def build_session(
+    *,
+    voice: str | None = None,
+    extra_keyterms: list[str] | None = None,
+) -> AgentSession:
+    keyterms = list(KEYTERMS)
+    if extra_keyterms:
+        keyterms.extend(extra_keyterms)
     return AgentSession(
         stt=deepgram.STT(
             model="nova-3",
             language="bs",
-            keyterm=KEYTERMS,
+            keyterm=keyterms,
             filler_words=True,
             punctuate=True,
             base_url=DEEPGRAM_EU,
@@ -50,7 +57,7 @@ def build_session() -> AgentSession:
         tts=soniox.TTS(
             model=SONIOX_MODEL,
             language="bs",
-            voice=SONIOX_VOICE,
+            voice=voice or SONIOX_VOICE,
             speed=SONIOX_SPEED,
             websocket_url=SONIOX_WS,
         ),

@@ -1,0 +1,18 @@
+# EDITABLE — only this file + prompts.py + soul.md
+# LOCKED stack is imported from amina.agent_soniox.build_session.
+
+[editable]
+agent_name = "alans-mujo-v3"
+display_name = "Alans_mujo V3 Soniox"
+persona_name = "Mujo"
+company = "Kantonalna bolnica Dr. Irfan Ljubijankic, Bihac"
+product = ""
+version = "0.3.0"
+
+[locked]
+stt = "deepgram nova-3 language=bs EU"
+llm = "openai/gpt-4.1 provider=azure"
+tts = "soniox Daniel tts-rt-v2 speed=0.9 language=bs EU-WS"
+tags = "[warm] [calm] [curious] [sincerely] [reassuringly] [softly] [pause]"
+hyphens = "forbidden"
+region = "eu-central"
