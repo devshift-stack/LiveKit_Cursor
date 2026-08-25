@@ -26,6 +26,7 @@ Ein Blick: **[AGENTEN.md](AGENTEN.md)** (nach neuem Agenten: `uv run python scri
 | Amina Fish | `amina` | Fish Ela | nein |
 | Amina Soniox (alt) | `amina-soniox` | Nina, ohne Tag-Prompt | nein |
 | **Amina v2 Soniox** | `amina-soniox-v2` | Nina + Tags, 0.9 | **ja** eu-central |
+| Amina v5 Soniox | `amina-soniox-v5` | Nina + Tags, STT v5 | nein (lokal) |
 | Template V1 | `template-v1` | wie v2, nur Vorlage | nein |
 | Alans_mujo V3 | `alans-mujo-v3` | Daniel | nein |
 

@@ -1,7 +1,7 @@
-# Soniox TTS — Amina v2 (Ist-Stand)
+# Soniox TTS — Amina (Ist-Stand)
 
 Quelle: `src/amina/agent_soniox.py` → `build_session()`  
-Agent: `amina-soniox-v2` (`src/amina/agent_soniox_v2.py`)
+Agents: `amina-soniox-v2` (Cloud), `amina-soniox-v5` (lokal, erweitertes STT)
 
 ## Python (LiveKit Plugin)
 
@@ -66,6 +66,7 @@ Verboten u.a.: `[happy]`, `[excited]`, bosnische Tags, Silben-Bindestriche (`Ami
 
 | Agent | Stimme | Anmerkung |
 |-------|--------|-----------|
-| Amina v2 | Nina 0.9 | Cloud live |
+| Amina v2 | Nina 0.9 | Cloud live (`amina-soniox-v2`) |
+| Amina v5 | Nina 0.9 | lokal (`amina-soniox-v5`), STT v5 |
 | Mujo V3 | Daniel | gleicher Stack, andere Stimme |
 | Fish (lokal) | Ela | separates TTS, `agent.py` |

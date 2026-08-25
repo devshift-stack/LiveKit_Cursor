@@ -65,7 +65,7 @@ def main() -> None:
     if hermes.get("SONIOX_TTS_WS"):
         merged["SONIOX_TTS_WS"] = hermes["SONIOX_TTS_WS"]
     merged.setdefault("SONIOX_TTS_WS", "wss://tts-rt.eu.soniox.com/tts-websocket")
-    merged.setdefault("SONIOX_TTS_VOICE", "Maya")
+    merged.setdefault("SONIOX_TTS_VOICE", "Nina")
     merged.setdefault("SONIOX_TTS_MODEL", "tts-rt-v2")
     merged["FISH_AUDIO_DEFAULT_VOICE"] = "d9b1befa09a34947b8c334268767abb6"
     merged["DEEPGRAM_BASE_URL"] = "https://api.eu.deepgram.com/v1/listen"

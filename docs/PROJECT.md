@@ -148,7 +148,11 @@ LiveKit: `deepgram/nova-3`, Sprache **`bs`** (in der Modellliste). Nicht `multi`
 | keyterm | Aquaphor, Smile, Firmira, Amina, bokal, pouzeće, flaširana, slavina, kamenac | Marken/BS-Wörter |
 | filler_words | true | aha/hm hören |
 | punctuate | true | Sätze |
-| EU-Host | `api.eu.deepgram.com` wenn Residenz | Default US |
+| smart_format | true | `build_deepgram_stt` |
+| endpointing_ms | 300 | `build_deepgram_stt` |
+| vad_events | true | `build_deepgram_stt` |
+| replace | `docs/voice/deepgram-replace.json` | `./scripts/replace.sh` |
+| EU-Host | `api.eu.deepgram.com` | Plugin + eigener Key |
 
 Plugin statt nur Inference, wenn EU-Host oder eigener Key nötig.
 

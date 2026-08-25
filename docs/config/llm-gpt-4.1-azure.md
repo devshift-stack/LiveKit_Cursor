@@ -70,7 +70,7 @@ Datei: `src/amina/prompts_soniox.py`
 | `SYSTEM_INSTRUCTIONS_SONIOX` | Agent-Instruktionen (Identität, Verkauf, Tags, Einwand) |
 | `OPENER_INSTRUCTIONS_SONIOX` | Erster Satz nach Begrüßung / Stille-Opener |
 
-`AminaSonioxV2Agent` setzt `instructions=SYSTEM_INSTRUCTIONS_SONIOX` und ruft in `on_enter` `generate_reply(instructions=OPENER_INSTRUCTIONS_SONIOX)` auf.
+`AminaSonioxV2Agent` / `AminaSonioxV5Agent` setzen `instructions=SYSTEM_INSTRUCTIONS_SONIOX` und rufen in `on_enter` `generate_reply(instructions=OPENER_INSTRUCTIONS_SONIOX)` auf.
 
 ## Function Tools (LLM-aufrufbar)
 

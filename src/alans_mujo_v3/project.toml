@@ -10,7 +10,7 @@ product = ""
 version = "0.3.0"
 
 [locked]
-stt = "deepgram nova-3 language=bs EU"
+stt = "deepgram nova-3 language=bs EU smart_format endpointing_ms=300 vad_events keyterm replace"
 llm = "openai/gpt-4.1 provider=azure"
 tts = "soniox Daniel tts-rt-v2 speed=0.9 language=bs EU-WS"
 tags = "[warm] [calm] [curious] [sincerely] [reassuringly] [softly] [pause]"

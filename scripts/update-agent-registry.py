@@ -71,6 +71,8 @@ def discover() -> list[dict]:
             role = "Vorlage (Klon)"
         elif agent_py.parent.name == "alans_mujo_v3":
             role = "Familien-Demo Dr Mujo"
+        elif agent_py.name == "agent_soniox_v5.py":
+            role = "Amina Verkauf — STT v5 lokal"
         elif agent_py.name == "agent_soniox_v2.py":
             role = "Amina Verkauf — Cloud"
         elif agent_py.name == "agent_soniox.py":
