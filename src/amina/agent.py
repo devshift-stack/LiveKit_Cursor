@@ -20,6 +20,7 @@ from livekit.agents import (
 )
 from livekit.plugins import deepgram, fishaudio
 
+from amina.deepgram_replace import load_deepgram_replace
 from amina.fish_text import prepare_tts_text
 from amina.prompts import OPENER_INSTRUCTIONS, SYSTEM_INSTRUCTIONS
 from amina.telemetry import setup_langfuse
@@ -39,6 +40,22 @@ KEYTERMS = [
     "slavina",
     "kamenac",
 ]
+
+
+def build_deepgram_stt(keyterms: list[str]) -> deepgram.STT:
+    replace = load_deepgram_replace()
+    return deepgram.STT(
+        model="nova-3",
+        language="bs",
+        keyterm=keyterms,
+        filler_words=True,
+        punctuate=True,
+        smart_format=True,
+        endpointing_ms=300,
+        vad_events=True,
+        replace=replace if replace else None,
+        base_url=DEEPGRAM_EU,
+    )
 
 
 class AminaAgent(Agent):
@@ -130,14 +147,7 @@ class AminaAgent(Agent):
 
 def build_session() -> AgentSession:
     return AgentSession(
-        stt=deepgram.STT(
-            model="nova-3",
-            language="bs",
-            keyterm=KEYTERMS,
-            filler_words=True,
-            punctuate=True,
-            base_url=DEEPGRAM_EU,
-        ),
+        stt=build_deepgram_stt(KEYTERMS),
         llm=inference.LLM(model="openai/gpt-4.1", provider="azure"),
         tts=fishaudio.TTS(
             model="s2.1-pro",
