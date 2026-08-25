@@ -1,0 +1,9 @@
+{
+  "note": "Deepgram STT replace (Transkript find→replace). Pflege: ./scripts/replace.sh",
+  "replacements": [
+    {
+      "from": "flaširana",
+      "to": "flasirana"
+    }
+  ]
+}

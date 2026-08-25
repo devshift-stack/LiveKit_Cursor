@@ -1,22 +1,21 @@
 # Agenten-Registry
 
-Team + Spuren: [BOTLISTE.md](BOTLISTE.md)
-
-Ein Blick auf **Telefon-Bots**. Quelle: Dateien unter `src/`. Neu schreiben:
+Ein Blick. Quelle: Dateien unter `src/`. Neu schreiben:
 
 ```bash
 uv run python scripts/update-agent-registry.py
 ```
 
-Zuletzt gebaut: **2026-08-24 10:37 CEST**
+Zuletzt gebaut: **2026-08-25 02:10 CEST**
 
 | Anzeige | LiveKit-Name | Datei | Stimme | Rolle | Letzter Git |
 |---|---|---|---|---|---|
 | Alans_mujo V3 Soniox | `alans-mujo-v3` | `src/alans_mujo_v3/agent.py` | Soniox Daniel | Familien-Demo Dr Mujo | 2b3d1cb 2026-08-24T07:10:42+02:00 |
-| amina | `amina` | `src/amina/agent.py` | Fish Ela | Amina Verkauf Fish | 69eef9d 2026-08-24T08:13:24+02:00 |
+| amina | `amina` | `src/amina/agent.py` | Fish Ela | Amina Verkauf Fish | 83cfc23 2026-08-25T02:02:26+02:00 |
 | Template V1 | `template-v1` | `src/amina/template_v1/agent.py` | Soniox Nina | Vorlage (Klon) | 114343e 2026-08-24T07:04:48+02:00 |
-| amina-soniox | `amina-soniox` | `src/amina/agent_soniox.py` | Soniox Nina | Amina Soniox alt | 69eef9d 2026-08-24T08:13:24+02:00 |
+| amina-soniox | `amina-soniox` | `src/amina/agent_soniox.py` | Soniox Nina | Amina Soniox alt | 83cfc23 2026-08-25T02:02:26+02:00 |
 | amina-soniox-v2 | `amina-soniox-v2` | `src/amina/agent_soniox_v2.py` | Soniox Nina | Amina Verkauf — Cloud | 69eef9d 2026-08-24T08:13:24+02:00 |
+| amina-soniox-v5 | `amina-soniox-v5` | `src/amina/agent_soniox_v5.py` | Soniox Nina | Amina Verkauf — STT v5 lokal | — |
 
 ## Cloud (manuell prüfen: `lk agent list --project aai`)
 

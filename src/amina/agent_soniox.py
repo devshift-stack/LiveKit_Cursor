@@ -16,9 +16,9 @@ from livekit.agents import (
     TurnHandlingOptions,
     inference,
 )
-from livekit.plugins import deepgram, soniox
+from livekit.plugins import soniox
 
-from amina.agent import DEEPGRAM_EU, KEYTERMS, AminaAgent
+from amina.agent import KEYTERMS, AminaAgent, build_deepgram_stt
 from amina.telemetry import setup_langfuse
 
 load_dotenv(Path(__file__).resolve().parents[2] / ".env.local")
@@ -45,14 +45,7 @@ def build_session(
     if extra_keyterms:
         keyterms.extend(extra_keyterms)
     return AgentSession(
-        stt=deepgram.STT(
-            model="nova-3",
-            language="bs",
-            keyterm=keyterms,
-            filler_words=True,
-            punctuate=True,
-            base_url=DEEPGRAM_EU,
-        ),
+        stt=build_deepgram_stt(keyterms),
         llm=inference.LLM(model="openai/gpt-4.1", provider="azure"),
         tts=soniox.TTS(
             model=SONIOX_MODEL,

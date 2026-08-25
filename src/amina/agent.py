@@ -20,6 +20,7 @@ from livekit.agents import (
 )
 from livekit.plugins import deepgram, fishaudio
 
+from amina.deepgram_replace import load_deepgram_replace
 from amina.fish_text import prepare_tts_text
 from amina.prompts import OPENER_INSTRUCTIONS, SYSTEM_INSTRUCTIONS
 from amina.telemetry import setup_langfuse
@@ -27,7 +28,23 @@ from amina.telemetry import setup_langfuse
 load_dotenv(Path(__file__).resolve().parents[2] / ".env.local")
 
 FISH_VOICE = os.getenv("FISH_AUDIO_DEFAULT_VOICE", "d9b1befa09a34947b8c334268767abb6")
-DEEPGRAM_EU = os.getenv("DEEPGRAM_BASE_URL", "https://api.eu.deepgram.com/v1/listen")
+DEEPGRAM_EU_LISTEN_URL = "https://api.eu.deepgram.com/v1/listen"
+
+
+def resolve_deepgram_eu_base_url(env_value: str | None = None) -> str:
+    """Always Deepgram EU region — never US api.deepgram.com."""
+    raw = (env_value or os.getenv("DEEPGRAM_BASE_URL") or "").strip()
+    if not raw or "api.eu.deepgram.com" not in raw:
+        return DEEPGRAM_EU_LISTEN_URL
+    normalized = raw.rstrip("/")
+    if normalized in {"https://api.eu.deepgram.com", "http://api.eu.deepgram.com"}:
+        return DEEPGRAM_EU_LISTEN_URL
+    if normalized.endswith("/v1/listen"):
+        return normalized
+    return DEEPGRAM_EU_LISTEN_URL
+
+
+DEEPGRAM_EU = resolve_deepgram_eu_base_url()
 KEYTERMS = [
     "Aquaphor",
     "Smile",
@@ -39,6 +56,22 @@ KEYTERMS = [
     "slavina",
     "kamenac",
 ]
+
+
+def build_deepgram_stt(keyterms: list[str]) -> deepgram.STT:
+    replace = load_deepgram_replace()
+    return deepgram.STT(
+        model="nova-3",
+        language="bs",
+        keyterm=keyterms,
+        filler_words=True,
+        punctuate=True,
+        smart_format=True,
+        endpointing_ms=300,
+        vad_events=True,
+        replace=replace if replace else None,
+        base_url=DEEPGRAM_EU,
+    )
 
 
 class AminaAgent(Agent):
@@ -130,14 +163,7 @@ class AminaAgent(Agent):
 
 def build_session() -> AgentSession:
     return AgentSession(
-        stt=deepgram.STT(
-            model="nova-3",
-            language="bs",
-            keyterm=KEYTERMS,
-            filler_words=True,
-            punctuate=True,
-            base_url=DEEPGRAM_EU,
-        ),
+        stt=build_deepgram_stt(KEYTERMS),
         llm=inference.LLM(model="openai/gpt-4.1", provider="azure"),
         tts=fishaudio.TTS(
             model="s2.1-pro",
